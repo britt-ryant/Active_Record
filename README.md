@@ -91,20 +91,6 @@ Rails provides a domain specific language used for managing a database schema ca
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Retrieving from db:
 
 find
