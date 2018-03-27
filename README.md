@@ -19,7 +19,7 @@ and it lets you interact with that data as though it was a normal Ruby object.
 Each Active Record object has CRUD (Create, Read, Update, and Delete) methods for database access.
 This strategy allows simple designs and straight forward mappings between database tables and application objects.
 
---Creating Active Record Files--
+# --Creating Active Record Files--
 
 similar to SQL, active record tables will use the id column that is created for all items in the table.
 
