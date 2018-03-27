@@ -27,13 +27,13 @@ naming convention of camelcase for the Model/Class and underscore plural for the
 
 Active Record will perform queries on the database for you and is compatible with most database systems, including MySQL, MariaDB, PostgreSQL, and SQLite. Regardless of which database system you're using, the Active Record method format will always be the same.
 
-1) This would link to the products table in the database:
+#1) This would link to the products table in the database:
 
     class Product < ApplicationRecord
     end
 
 
-2) SQL that was used to create corresponding table:
+#2) SQL that was used to create corresponding table:
 
       CREATE TABLE products (
          id int(11) NOT NULL auto_increment,
@@ -41,12 +41,12 @@ Active Record will perform queries on the database for you and is compatible wit
          PRIMARY KEY  (id)
       );
 
-3) CREATE
+#3) CREATE
       user = User.new
       product.name = "John"
       product.occupation = "developer"
 
-4) READ
+#4) READ
       users = User.all
 
       user = User.first
@@ -55,7 +55,7 @@ Active Record will perform queries on the database for you and is compatible wit
 
       users = User.where(name: 'David', occupation: 'Code Artist').order(created_at: :desc)
 
-5) UPDATE
+#5) UPDATE
       user = User.find_by(name: 'David')
       user.name = 'Dave'
       user.save
@@ -63,7 +63,7 @@ Active Record will perform queries on the database for you and is compatible wit
     *Multiples*
       User.update_all "max_login_attempts = 3, must_change_password = 'true'"
 
-6) DELETE
+#6) DELETE
       user = User.find_by(name: 'David')
       user.destroy
 
@@ -91,7 +91,7 @@ Rails provides a domain specific language used for managing a database schema ca
 
 
 
-Retrieving from db:
+#Retrieving from db:
 
 find
 create_with
@@ -119,29 +119,29 @@ where
 
 
 
-Active Record
+#Active Record
 # Find the client with primary key (id) 10.
 client = Client.find(10)
 
-SQL
+#SQL
 SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1
 
-Active Record
+#Active Record
 # Find the clients with primary keys 1 and 10.
 client = Client.find([1, 10]) # Or even Client.find(1, 10)
 
-SQL
+#SQL
 SELECT * FROM clients WHERE (clients.id IN (1,10))
 
 
-Active Record
+#Active Record
 client = Client.first(3)
 
-SQL
+#SQL
 SELECT * FROM clients ORDER BY clients.id ASC LIMIT 3
 
-Active Record
+#Active Record
 Client.where(first_name: 'Lifo').take
 
-SQL
+#SQL
 SELECT * FROM clients WHERE (clients.first_name = 'Lifo') LIMIT 1
