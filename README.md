@@ -41,6 +41,29 @@ Active Record will perform queries on the database for you and is compatible wit
          PRIMARY KEY  (id)
       );
 
+
+#  Rails provides a domain specific language used for managing a database schema call MIGRATIONS
+
+          *** this sill runs in MySQL & PostgreSQL, it is database-agnostic ***
+
+            class CreatePublications < ActiveRecord::Migration[5.0]
+              def change
+                create_table :publications do |t|
+                  t.string :title
+                  t.text :description
+                  t.references :publication_type
+                  t.integer :publisher_id
+                  t.string :publisher_type
+                  t.boolean :single_issue
+
+                  t.timestamps
+                end
+                add_index :publications, :publication_type_id
+              end
+            end
+
+
+
 # 3) CREATE
       user = User.new
       product.name = "John"
@@ -68,53 +91,30 @@ Active Record will perform queries on the database for you and is compatible wit
       user.destroy
 
 
-
-Rails provides a domain specific language used for managing a database schema call MIGRATIONS
-
-    *** this sill run MySQL & PostgreSQL, it is database-agnostic ***
-
-      class CreatePublications < ActiveRecord::Migration[5.0]
-        def change
-          create_table :publications do |t|
-            t.string :title
-            t.text :description
-            t.references :publication_type
-            t.integer :publisher_id
-            t.string :publisher_type
-            t.boolean :single_issue
-
-            t.timestamps
-          end
-          add_index :publications, :publication_type_id
-        end
-      end
-
-
-
 # Retrieving from db:
 
-find
-create_with
-distinct
-eager_load
-extending
-from
-group
-having
-includes
-joins
-left_outer_joins
-limit
-lock
-none
-offset
-order
-preload
-readonly
-references
-reorder
-reverse_order
-select
+find,
+create_with,
+distinct,
+eager_load,
+extending,
+from,
+group,
+having,
+includes,
+joins,
+left_outer_joins,
+limit,
+lock,
+none,
+offset,
+order,
+preload,
+readonly,
+references,
+reorder,
+reverse_order,
+select,
 where
 
 
